@@ -44,7 +44,6 @@ public class VideoActivity extends Activity implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-     //   InputStream is = getResources().openRawResource(R.raw.yw);
         int isOpen=mAndroid.open(url);
         Log.i("111","isOpen:"+isOpen);
         mAndroid.setOnOpenSuccessListener(new APlayerAndroid.OnOpenSuccessListener() {
@@ -68,6 +67,13 @@ public class VideoActivity extends Activity implements SurfaceHolder.Callback {
             }
         });
         Log.i("111","length:"+mAndroid.getDuration());
+
+        mAndroid.setOnBufferListener(new APlayerAndroid.OnBufferListener() {
+            @Override
+            public void onBuffer(int i) {
+                Log.i("111","buffer change:"+i);
+            }
+        });
 
     }
 

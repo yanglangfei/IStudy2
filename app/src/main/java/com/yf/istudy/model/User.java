@@ -1,5 +1,8 @@
 package com.yf.istudy.model;
 
+import android.view.View;
+import android.widget.Toast;
+
 /**
  * Created by Administrator on 2016/11/23.
  */
@@ -22,5 +25,9 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public  void onNameClick(View v){
+        Toast.makeText(v.getContext(), "name click ", Toast.LENGTH_SHORT).show();
     }
 }
